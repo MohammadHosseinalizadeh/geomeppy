@@ -261,7 +261,7 @@ class IDF(PatchedIDF):
         block.zoning = kwargs.get("zoning", "by_storey")
         if block.zoning == "by_storey":
             zones = [
-                Zone("Block %s Storey %i" % (block.name, storey["storey_no"]), storey)
+                Zone("Block_%s_Storey_%i" % (block.name, storey["storey_no"]), storey)
                 for storey in block.stories
             ]
         elif block.zoning == "core/perim":
@@ -278,7 +278,7 @@ class IDF(PatchedIDF):
                     )
                     zones += [
                         Zone(
-                            "Block %s Storey %i" % (block.name, storey["storey_no"]),
+                            "Block_%s_Storey_%i" % (block.name, storey["storey_no"]),
                             storey,
                         )
                         for storey in block.stories
